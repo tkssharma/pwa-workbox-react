@@ -17,7 +17,6 @@ or
 $ cd build
 $ python -m SimpleHTTPServer 8000
 ```
-
 ### caching mechanism using workbox
 
 ```
@@ -58,3 +57,4 @@ workbox.routing.registerRoute(
   }),
 );
 ```
+
