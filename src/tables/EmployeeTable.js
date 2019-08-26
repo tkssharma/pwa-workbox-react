@@ -1,12 +1,13 @@
 import React from 'react';
 
 const EmployeeTable = props => (
-  <table>
+  <table className="table">
     <thead>
       <tr>
         <th>Employee Name</th>
         <th>Employee Email</th>
-        <th>Actions</th>
+        <th>Edit</th>
+        <th>Delete</th>
       </tr>
     </thead>
     <tbody>
@@ -15,16 +16,18 @@ const EmployeeTable = props => (
           <tr key={employee.id}>
             <td>{employee.name}</td>
             <td>{employee.email}</td>
-            <td>
+            <td className="button-group">
               <button
                 onClick={() => {
                   props.editRow(employee);
                 }}
-                className="button muted-button"
+                className="btn btn-primary"
               >
                 Edit
               </button>
-              <button onClick={() => props.deleteEmployee(employee.id)} className="button muted-button">
+            </td>
+            <td className="button-group">
+              <button className="btn btn-primary" onClick={() => props.deleteEmployee(employee.id)}>
                 Delete
               </button>
             </td>

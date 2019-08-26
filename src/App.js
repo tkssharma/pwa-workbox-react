@@ -1,11 +1,11 @@
-import React, { useState, Fragment } from 'react';
+import React, { useState } from 'react';
 import AddEmployeeForm from './forms/AddEmployeeForm';
 import EditEmployeeForm from './forms/EditEmployeeForm';
 import EmployeeTable from './tables/EmployeeTable';
 import { LocalStorageService } from './cache/localStorage';
 
 const App = props => {
-  const initialFormState = { id: null, name: '', username: '' };
+  const initialFormState = { id: null, name: '', email: '' };
 
   // Setting state
   const [employees, setEmployees] = useState(props.employeeData);
@@ -36,33 +36,33 @@ const App = props => {
 
   const editRow = employee => {
     setEditing(true);
-    setCurrentEmployee({ id: employee.id, name: employee.name, username: employee.username });
+    setCurrentEmployee({ id: employee.id, name: employee.name, email: employee.email });
   };
 
   return (
     <div className="container">
-      <h1>PWA Application with workbox </h1>
-      <div className="flex-row">
+      <h1 className="container-title">PWA Application with workbox </h1>
+      <div className="flex-container">
         <div className="flex-large">
           {editing ? (
-            <Fragment>
-              <h2>Edit user</h2>
+            <div className="flex-card">
+              <h2 className="flex-title">Edit user</h2>
               <EditEmployeeForm
                 editing={editing}
                 setEditing={setEditing}
                 currentEmployee={currentEmployee}
                 updateEmployee={updateEmployee}
               />
-            </Fragment>
+            </div>
           ) : (
-            <Fragment>
-              <h2>Add Employee</h2>
+            <div className="flex-card">
+              <h2 className="flex-title">Add Employee</h2>
               <AddEmployeeForm addEmployee={addEmployee} />
-            </Fragment>
+            </div>
           )}
         </div>
         <div className="flex-large">
-          <h2>View employees</h2>
+          <h2 className="flex-title">View employees</h2>
           <EmployeeTable employees={employees} editRow={editRow} deleteEmployee={deleteEmployee} />
         </div>
       </div>
