@@ -3,7 +3,7 @@ import AddEmployeeForm from './forms/AddEmployeeForm';
 import EditEmployeeForm from './forms/EditEmployeeForm';
 import EmployeeTable from './tables/EmployeeTable';
 import { LocalStorageService } from './cache/localStorage';
-
+import axios from 'axios';
 const App = props => {
   const initialFormState = { id: null, name: '', email: '' };
 
@@ -18,6 +18,12 @@ const App = props => {
     const data = [...employees, employee];
     LocalStorageService.setItem('employee', data);
     setEmployees(data);
+    /* can be used as testing ofr caching API calls using workbox
+    axios.get('https://randomuser.me/api/').then(data => {
+      // eslint-disable-next-line no-console
+      console.log(data);
+    });
+    */
   };
 
   const deleteEmployee = id => {
