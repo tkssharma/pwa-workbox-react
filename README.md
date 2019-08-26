@@ -1,16 +1,19 @@
-# Using Workbox with Create React App (Without Ejecting)
+# Using Workbox with Create React App
 
-Demo project to use workbox with react applications.
+Employee CRUD with WorkBox 
 
 ### Build the project
 
 ```bash
-$ yarn install
-$ yarn build
+$ npm install
+$ npm run build
 ```
 ### Test the app
 
 ```bash
 $ yarn global add serve
 $ serve -s build
+or 
+$ cd build
+$ python -m SimpleHTTPServer 8000
 ```
